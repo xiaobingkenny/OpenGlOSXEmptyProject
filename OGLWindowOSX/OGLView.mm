@@ -9,6 +9,7 @@
 #include <Opengl/gl.h>
 #include <OpenGL/glu.h>
 #include <OpenGL/gl3.h>
+#include "Scene.h"
 
 static OGLView* sOGLView = nullptr;
 @implementation OGLView
@@ -32,8 +33,24 @@ static OGLView* sOGLView = nullptr;
     NSOpenGLPixelFormat* format = [[NSOpenGLPixelFormat alloc] initWithAttributes:pixel_format];
     [self initWithFrame:rect pixelFormat:format];
     [[self openGLContext]makeCurrentContext];
+
     
     NSLog(@"%s", glGetString(GL_VERSION));
     
+    Init(rect.size.width, rect.size.height);
+    
 }
+
+-(void)drawRect:(NSRect)dirtyRect{
+    [super drawRect:dirtyRect];
+    
+//    glClearColor(0.1f, 0.4f, 0.7f, 1.0f);
+//
+//    glClear(GL_COLOR_BUFFER_BIT);
+//    glFlush();
+    Render();
+    
+    // Drawing code here.
+}
+
 @end

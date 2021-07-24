@@ -14,6 +14,7 @@
 		B906932926AC6F1E0095FF48 /* OGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = B906932826AC6F1E0095FF48 /* OGLView.mm */; };
 		B906932C26AC770A0095FF48 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B906932B26AC770A0095FF48 /* AppKit.framework */; };
 		B906932E26AC77140095FF48 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B906932D26AC77140095FF48 /* OpenGL.framework */; };
+		B906933126AC7FAD0095FF48 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B906932F26AC7FAD0095FF48 /* Scene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		B906932826AC6F1E0095FF48 /* OGLView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OGLView.mm; sourceTree = "<group>"; };
 		B906932B26AC770A0095FF48 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		B906932D26AC77140095FF48 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		B906932F26AC7FAD0095FF48 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		B906933026AC7FAD0095FF48 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 				B906932526AC6EC80095FF48 /* OGLMainWindow.mm */,
 				B906932726AC6F1E0095FF48 /* OGLView.h */,
 				B906932826AC6F1E0095FF48 /* OGLView.mm */,
+				B906932F26AC7FAD0095FF48 /* Scene.cpp */,
+				B906933026AC7FAD0095FF48 /* Scene.h */,
 			);
 			path = OGLWindowOSX;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				B906932626AC6EC80095FF48 /* OGLMainWindow.mm in Sources */,
 				B906932926AC6F1E0095FF48 /* OGLView.mm in Sources */,
 				B906931D26AC6C6B0095FF48 /* main.mm in Sources */,
+				B906933126AC7FAD0095FF48 /* Scene.cpp in Sources */,
 				B906931226AC6C680095FF48 /* AppDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
