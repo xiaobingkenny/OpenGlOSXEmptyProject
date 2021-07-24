@@ -7,24 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B906931226AC6C680095FF48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B906931126AC6C680095FF48 /* AppDelegate.m */; };
-		B906931526AC6C680095FF48 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B906931426AC6C680095FF48 /* ViewController.m */; };
+		B906931226AC6C680095FF48 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = B906931126AC6C680095FF48 /* AppDelegate.mm */; };
 		B906931726AC6C6B0095FF48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B906931626AC6C6B0095FF48 /* Assets.xcassets */; };
-		B906931A26AC6C6B0095FF48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B906931826AC6C6B0095FF48 /* Main.storyboard */; };
-		B906931D26AC6C6B0095FF48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B906931C26AC6C6B0095FF48 /* main.m */; };
+		B906931D26AC6C6B0095FF48 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = B906931C26AC6C6B0095FF48 /* main.mm */; };
+		B906932626AC6EC80095FF48 /* OGLMainWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = B906932526AC6EC80095FF48 /* OGLMainWindow.mm */; };
+		B906932926AC6F1E0095FF48 /* OGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = B906932826AC6F1E0095FF48 /* OGLView.mm */; };
+		B906932C26AC770A0095FF48 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B906932B26AC770A0095FF48 /* AppKit.framework */; };
+		B906932E26AC77140095FF48 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B906932D26AC77140095FF48 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B906930D26AC6C680095FF48 /* OGLWindowOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OGLWindowOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B906931026AC6C680095FF48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B906931126AC6C680095FF48 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B906931326AC6C680095FF48 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B906931426AC6C680095FF48 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B906931126AC6C680095FF48 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		B906931626AC6C6B0095FF48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B906931926AC6C6B0095FF48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B906931B26AC6C6B0095FF48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B906931C26AC6C6B0095FF48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B906931C26AC6C6B0095FF48 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		B906931E26AC6C6B0095FF48 /* OGLWindowOSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OGLWindowOSX.entitlements; sourceTree = "<group>"; };
+		B906932426AC6EC80095FF48 /* OGLMainWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OGLMainWindow.h; sourceTree = "<group>"; };
+		B906932526AC6EC80095FF48 /* OGLMainWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OGLMainWindow.mm; sourceTree = "<group>"; };
+		B906932726AC6F1E0095FF48 /* OGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OGLView.h; sourceTree = "<group>"; };
+		B906932826AC6F1E0095FF48 /* OGLView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OGLView.mm; sourceTree = "<group>"; };
+		B906932B26AC770A0095FF48 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		B906932D26AC77140095FF48 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B906932E26AC77140095FF48 /* OpenGL.framework in Frameworks */,
+				B906932C26AC770A0095FF48 /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +50,7 @@
 			children = (
 				B906930F26AC6C680095FF48 /* OGLWindowOSX */,
 				B906930E26AC6C680095FF48 /* Products */,
+				B906932A26AC770A0095FF48 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +66,26 @@
 			isa = PBXGroup;
 			children = (
 				B906931026AC6C680095FF48 /* AppDelegate.h */,
-				B906931126AC6C680095FF48 /* AppDelegate.m */,
-				B906931326AC6C680095FF48 /* ViewController.h */,
-				B906931426AC6C680095FF48 /* ViewController.m */,
+				B906931126AC6C680095FF48 /* AppDelegate.mm */,
 				B906931626AC6C6B0095FF48 /* Assets.xcassets */,
-				B906931826AC6C6B0095FF48 /* Main.storyboard */,
 				B906931B26AC6C6B0095FF48 /* Info.plist */,
-				B906931C26AC6C6B0095FF48 /* main.m */,
+				B906931C26AC6C6B0095FF48 /* main.mm */,
 				B906931E26AC6C6B0095FF48 /* OGLWindowOSX.entitlements */,
+				B906932426AC6EC80095FF48 /* OGLMainWindow.h */,
+				B906932526AC6EC80095FF48 /* OGLMainWindow.mm */,
+				B906932726AC6F1E0095FF48 /* OGLView.h */,
+				B906932826AC6F1E0095FF48 /* OGLView.mm */,
 			);
 			path = OGLWindowOSX;
+			sourceTree = "<group>";
+		};
+		B906932A26AC770A0095FF48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B906932D26AC77140095FF48 /* OpenGL.framework */,
+				B906932B26AC770A0095FF48 /* AppKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +145,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B906931726AC6C6B0095FF48 /* Assets.xcassets in Resources */,
-				B906931A26AC6C6B0095FF48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,24 +155,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B906931526AC6C680095FF48 /* ViewController.m in Sources */,
-				B906931D26AC6C6B0095FF48 /* main.m in Sources */,
-				B906931226AC6C680095FF48 /* AppDelegate.m in Sources */,
+				B906932626AC6EC80095FF48 /* OGLMainWindow.mm in Sources */,
+				B906932926AC6F1E0095FF48 /* OGLView.mm in Sources */,
+				B906931D26AC6C6B0095FF48 /* main.mm in Sources */,
+				B906931226AC6C680095FF48 /* AppDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B906931826AC6C6B0095FF48 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B906931926AC6C6B0095FF48 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B906931F26AC6C6B0095FF48 /* Debug */ = {
