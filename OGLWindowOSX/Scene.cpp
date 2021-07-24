@@ -11,7 +11,21 @@
 #include <OpenGL/gl3.h>
 
 void Init(float width, float height){
+    // model view projection
+    // 物体是在 model 模型空间定义的，---> 使用模型矩阵 将模型放到 世界坐标系中
+    // 视口矩阵，就是将眼睛摆在世界坐标系中
+    // 投影矩阵，眼睛看到的东西如何将其变成2D，就是靠投影矩阵
     
+    glMatrixMode(GL_PROJECTION); // 选中projection矩阵
+    gluPerspective(45.0f, width/height, 0.1f, 1000.0f); // 设置投影矩阵（通过这些参数算出投影矩阵）
+    //
+    
+    glMatrixMode(GL_MODELVIEW); // 选中modelview矩阵 (固定管线 将model矩阵和view矩阵合并了)
+    glLoadIdentity(); // 给model矩阵设置为单位矩阵
+    
+    // 点 Pos => M*Pos 先将这个点放到世界坐标系
+    // => V*M*Pos 在将这个点给摄像机看
+    // => P*V*M*Pos 在和投影矩阵相乘 形成2D画面
 }
 
 void Render(){
