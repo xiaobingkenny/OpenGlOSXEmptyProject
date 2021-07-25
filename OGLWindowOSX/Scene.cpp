@@ -54,15 +54,24 @@ void Render(){
     
     glPolygonMode(GL_FRONT, GL_LINE); // 启用线框模式GL_LINE 不是GL_LINES , GL_FILL填充模式
     
-    glBegin(GL_TRIANGLE_STRIP);// 三角条 用于绘制四边形
-    float z = -2.0f;
-    glVertex3f(-0.5f, -0.5f, z);
-    glVertex3f(0.5f, -0.5f, z);
-    glVertex3f(-0.5f, 0.5f, z);
-    glVertex3f(0.5f, 0.5f, z);
+//    glBegin(GL_TRIANGLE_STRIP);// 三角条 用于绘制四边形
+//    float z = -2.0f;
+//    glVertex3f(-0.5f, -0.5f, z);
+//    glVertex3f(0.5f, -0.5f, z);
+//    glVertex3f(-0.5f, 0.5f, z);
+//    glVertex3f(0.5f, 0.5f, z);
+//
+//    glVertex3f(-0.5f, 0.6f, z);
+//    glVertex3f(0.5f, 0.7f, z);
+//    glEnd();
     
-    glVertex3f(-0.5f, 0.6f, z);
-    glVertex3f(0.5f, 0.7f, z);
+    glBegin(GL_TRIANGLE_FAN); // 扇
+    float z = -2.0f;
+    glVertex3f(0.0f, 0.0f, z); // 扇心
+    
+    glVertex3f(-0.5f, -0.5f, z);
+    glVertex3f(0.0f, -0.5f, z);
+    glVertex3f(0.5f, -0.5f, z);
     glEnd();
     
     // 执行上面两句指令，可能保存到glContext上下文指令队列中，不一定到gpu中
