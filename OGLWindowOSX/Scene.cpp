@@ -79,11 +79,59 @@ void Render(){
     //glEnable(GL_BLEND);
     //glBlendFunc(GL_SRC_ALPHA, GL_ONE);
     
-    glBegin(GL_POINTS); // 点 固定管线成像原理==> 先将3D的点映射到2D后，再进行点的扩散，设置点的大小，点是没有近大远小
+//    glBegin(GL_POINTS); // 点 固定管线成像原理==> 先将3D的点映射到2D后，再进行点的扩散，设置点的大小，点是没有近大远小
+//    float z = -2.0f;
+//    glVertex3f(0.0f, 0.0f, z);
+//    glVertex3f(-0.5f, -0.5f, z);
+//    glVertex3f(0.0f, -0.5f, z);
+//    glVertex3f(0.5f, -0.5f, z);
+//    glEnd();
+    
+//    glBegin(GL_LINES); // 每两个点连成一条线
+//    float z = -2.0f;
+//    glVertex3f(0.0f, 0.0f, z);
+//    glVertex3f(-0.5f, -0.5f, z);
+//    glVertex3f(0.0f, -0.5f, z);
+//    glVertex3f(0.5f, -0.5f, z);
+//    glEnd();
+    
+//    glBegin(GL_LINE_STRIP); // 将每个点依次连起来
+//    float z = -2.0f;
+//    glVertex3f(0.0f, 0.0f, z);
+//    glVertex3f(-0.5f, -0.5f, z);
+//    glVertex3f(0.0f, -0.5f, z);
+//    glVertex3f(0.5f, -0.5f, z);
+//    glEnd();
+    
+//    glBegin(GL_LINE_LOOP); // 将每个点依次连成一个闭环
+//    float z = -2.0f;
+//    glVertex3f(0.0f, 0.0f, z);
+//    glVertex3f(-0.5f, -0.5f, z);
+//    glVertex3f(0.0f, -0.5f, z);
+//    glVertex3f(0.5f, -0.5f, z);
+//    glEnd();
+    
+//    glBegin(GL_QUADS); // 连成四边形
+//    float z = -2.0f;
+//    glVertex3f(0.0f, 0.0f, z);
+//    glVertex3f(-0.5f, -0.5f, z);
+//    glVertex3f(0.0f, -0.2f, z);
+//    glVertex3f(0.5f, -0.5f, z);
+//    glEnd();
+    
+//    glBegin(GL_QUAD_STRIP);
+//    float z = -2.0f;
+//    glVertex3f(0.0f, 0.0f, z);
+//    glVertex3f(-0.5f, -0.5f, z);
+//    glVertex3f(0.0f, -0.2f, z);
+//    glVertex3f(0.5f, -0.5f, z);
+//    glEnd();
+    
+    glBegin(GL_POLYGON); // 多边形
     float z = -2.0f;
     glVertex3f(0.0f, 0.0f, z);
     glVertex3f(-0.5f, -0.5f, z);
-    glVertex3f(0.0f, -0.5f, z);
+    glVertex3f(0.0f, -0.2f, z);
     glVertex3f(0.5f, -0.5f, z);
     glEnd();
     
