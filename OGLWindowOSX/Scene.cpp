@@ -37,19 +37,32 @@ void Render(){
 //    glEnable(GL_CULL_FACE);// 反面剔除
 //    glFrontFace(GL_CW); // 设置顺时针是正面（默认逆时针 GL_CCW）
     
-    glBegin(GL_TRIANGLES); // 开始绘制三角形了,下面指定每三个点绘制成三角形
-    // 默认情况下摄像机是从{0, 0, 0} 看向{0, 0, -1}的，
-    // 而视椎体 z轴的范围：0.1-> (-1000 + 0.1) 所以下面的z坐标需要给小于0.1的值(如-0.5f，-1.5f)
-    float z = -1.5f;
-    // opengl默认逆时针是正面，如果OpenGL开启反面剔除，顺时针的反面，就绘制不出来了
+//    glBegin(GL_TRIANGLES); // 开始绘制三角形了,下面指定每三个点绘制成三角形
+//    // 默认情况下摄像机是从{0, 0, 0} 看向{0, 0, -1}的，
+//    // 而视椎体 z轴的范围：0.1-> (-1000 + 0.1) 所以下面的z坐标需要给小于0.1的值(如-0.5f，-1.5f)
+//    float z = -1.5f;
+//    // opengl默认逆时针是正面，如果OpenGL开启反面剔除，顺时针的反面，就绘制不出来了
+//    glVertex3f(-0.5f, -0.5f, z);
+//    glVertex3f(0.5f, -0.5f, z);
+//    glVertex3f(0.0f, 0.5f, z);
+//
+////    glVertex3f(-0.5f+0.2f, -0.5f, z);
+////    glVertex3f(0.5f+0.2f, -0.5f, z);
+////    glVertex3f(0.0f+0.2f, 0.5f, z);
+//
+//    glEnd();
+    
+    glPolygonMode(GL_FRONT, GL_LINE); // 启用线框模式GL_LINE 不是GL_LINES , GL_FILL填充模式
+    
+    glBegin(GL_TRIANGLE_STRIP);// 三角条 用于绘制四边形
+    float z = -2.0f;
     glVertex3f(-0.5f, -0.5f, z);
     glVertex3f(0.5f, -0.5f, z);
-    glVertex3f(0.0f, 0.5f, z);
+    glVertex3f(-0.5f, 0.5f, z);
+    glVertex3f(0.5f, 0.5f, z);
     
-//    glVertex3f(-0.5f+0.2f, -0.5f, z);
-//    glVertex3f(0.5f+0.2f, -0.5f, z);
-//    glVertex3f(0.0f+0.2f, 0.5f, z);
-    
+    glVertex3f(-0.5f, 0.6f, z);
+    glVertex3f(0.5f, 0.7f, z);
     glEnd();
     
     // 执行上面两句指令，可能保存到glContext上下文指令队列中，不一定到gpu中
