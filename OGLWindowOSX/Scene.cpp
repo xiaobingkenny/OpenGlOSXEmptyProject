@@ -65,10 +65,20 @@ void Render(){
 //    glVertex3f(0.5f, 0.7f, z);
 //    glEnd();
     
-    glBegin(GL_TRIANGLE_FAN); // 扇
-    float z = -2.0f;
-    glVertex3f(0.0f, 0.0f, z); // 扇心
+//    glBegin(GL_TRIANGLE_FAN); // 扇
+//    float z = -2.0f;
+//    glVertex3f(0.0f, 0.0f, z); // 扇心
+//
+//    glVertex3f(-0.5f, -0.5f, z);
+//    glVertex3f(0.0f, -0.5f, z);
+//    glVertex3f(0.5f, -0.5f, z);
+//    glEnd();
     
+    glPointSize(32.0f); // 2D的长32，宽32 （这个点要求（厂商最大值 最小必须是64），所以设置1000.0f 也不会很大）
+    
+    glBegin(GL_POINTS); // 点 固定管线成像原理==> 先将3D的点映射到2D后，再设置点的大小
+    float z = -2.0f;
+    glVertex3f(0.0f, 0.0f, z);
     glVertex3f(-0.5f, -0.5f, z);
     glVertex3f(0.0f, -0.5f, z);
     glVertex3f(0.5f, -0.5f, z);
