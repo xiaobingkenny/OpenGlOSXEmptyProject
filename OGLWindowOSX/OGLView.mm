@@ -10,6 +10,22 @@
 #include <OpenGL/glu.h>
 #include <OpenGL/gl3.h>
 #include "Scene.h"
+#include "Utils.h"
+
+unsigned char* LoadFileContent(const char* path, int &filesize){
+    unsigned char* fileContent = nullptr;
+    
+    filesize = 0;
+    NSString* file = [[NSBundle mainBundle] pathForResource:[NSString stringWithUTF8String:path] ofType:nil];
+    NSData* data = [NSData dataWithContentsOfFile:file];
+    if([data length]>0){
+        filesize = [data length];
+        fileContent = new unsigned char[filesize];
+        memcpy(fileContent, [data bytes], filesize);
+        fileContent[filesize] = 0;
+    }
+    return fileContent;
+}
 
 static OGLView* sOGLView = nullptr;
 @implementation OGLView

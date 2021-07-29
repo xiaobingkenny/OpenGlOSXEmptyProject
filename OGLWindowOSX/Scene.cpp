@@ -236,11 +236,24 @@ void RenderBack(){
     glFlush(); // glFlush 就是将指令队列刷新给gpu，是否执行glFlush它不管
 }
 
+#include "Utils.h"
+
+GLuint texture;
 void Init(float width, float height){
     glMatrixMode(GL_PROJECTION);
     gluPerspective(45.0f, width/height, 0.1f, 1000.0f);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+    
+    int filesize = 0;
+    unsigned char* bmp_file_content = LoadFileContent("Data/head.bmp", filesize);
+    
+    int image_width = 0;
+    int image_height = 0;
+    unsigned char* pixel = DecodeBMP(bmp_file_content, image_width, image_height);
+    
+    texture = CreateTexture(pixel, image_width, image_height, GL_RGB);
+    delete[] bmp_file_content;
 }
 
 void Render(){
@@ -253,14 +266,22 @@ void Render(){
     glPointSize(32.0f);
     glEnable(GL_POINT_SMOOTH);
     
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glEnable(GL_TEXTURE_2D);
     glPushMatrix(); // 压栈 （保存了当前选中的矩阵，压栈出栈可以嵌套）
         glTranslatef(0.0f, 0.0f, -2.0f); // 2. 将模型视口矩阵拉到z=-2.0f位置，后面绘制三角形式就居于这个位置绘制
         
         glBegin(GL_TRIANGLES);
+            // 纹理坐标左下角为0，0
+            glTexCoord2f(0.0f, 0.0f);
             glColor3ub(255, 255, 0); // 颜色也是在opengl的context里保存的，绘制点的时候，根据opengl状态机，context的颜色的信息绘制点
             glVertex3f(-0.5f, -0.5f, 0.0f);
+    
+            glTexCoord2f(1.0f, 0.0f);
             glColor3ub(255, 0, 255);
             glVertex3f(0.5f, -0.5f, 0.0f);
+    
+            glTexCoord2f(0.5f, 1.0f);
             glColor3ub(0, 255, 255);
             glVertex3f(0.0f, 0.5f, 0.0f);
         glEnd();

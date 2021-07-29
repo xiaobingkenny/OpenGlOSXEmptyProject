@@ -16,6 +16,8 @@
 		B906932E26AC77140095FF48 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B906932D26AC77140095FF48 /* OpenGL.framework */; };
 		B906933126AC7FAD0095FF48 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B906932F26AC7FAD0095FF48 /* Scene.cpp */; };
 		B906933326AFDF0A0095FF48 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B906933226AFDF0A0095FF48 /* GLUT.framework */; };
+		B9C2964926B30F7F00D45058 /* Data in Resources */ = {isa = PBXBuildFile; fileRef = B9C2964826B30F7F00D45058 /* Data */; };
+		B9C2964C26B30FE300D45058 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9C2964A26B30FE300D45058 /* Utils.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,9 @@
 		B906932F26AC7FAD0095FF48 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		B906933026AC7FAD0095FF48 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		B906933226AFDF0A0095FF48 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		B9C2964826B30F7F00D45058 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Data; path = OGLWindowOSX/Data; sourceTree = "<group>"; };
+		B9C2964A26B30FE300D45058 /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
+		B9C2964B26B30FE300D45058 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +59,7 @@
 		B906930426AC6C680095FF48 = {
 			isa = PBXGroup;
 			children = (
+				B9C2964826B30F7F00D45058 /* Data */,
 				B906930F26AC6C680095FF48 /* OGLWindowOSX */,
 				B906930E26AC6C680095FF48 /* Products */,
 				B906932A26AC770A0095FF48 /* Frameworks */,
@@ -83,6 +89,8 @@
 				B906932826AC6F1E0095FF48 /* OGLView.mm */,
 				B906932F26AC7FAD0095FF48 /* Scene.cpp */,
 				B906933026AC7FAD0095FF48 /* Scene.h */,
+				B9C2964A26B30FE300D45058 /* Utils.cpp */,
+				B9C2964B26B30FE300D45058 /* Utils.h */,
 			);
 			path = OGLWindowOSX;
 			sourceTree = "<group>";
@@ -153,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9C2964926B30F7F00D45058 /* Data in Resources */,
 				B906931726AC6C6B0095FF48 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B906932626AC6EC80095FF48 /* OGLMainWindow.mm in Sources */,
+				B9C2964C26B30FE300D45058 /* Utils.cpp in Sources */,
 				B906932926AC6F1E0095FF48 /* OGLView.mm in Sources */,
 				B906931D26AC6C6B0095FF48 /* main.mm in Sources */,
 				B906933126AC7FAD0095FF48 /* Scene.cpp in Sources */,
