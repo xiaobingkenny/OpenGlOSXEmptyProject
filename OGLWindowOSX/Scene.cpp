@@ -247,18 +247,29 @@ void Render(){
     glClearColor(0.1f, 0.4f, 0.7f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT|GL_STENCIL_BUFFER_BIT);
     glEnable(GL_CULL_FACE);
-    glLoadIdentity(); // 1. 重置模型视图矩阵
+    glLoadIdentity(); // 1. 重置模型视口矩阵
                         //（注：a.最近选中的矩阵是glMatrixMode(GL_MODELVIEW)，在没有选中其他矩阵的时候，后续的操作都是对GL_MODELVIEW操作的；
                         //   b.在这重置了，防止之前有修改过这个矩阵）
     glPointSize(32.0f);
     glEnable(GL_POINT_SMOOTH);
     
-    glTranslatef(0.0f, 0.0f, -2.0f); // 2. 将模型视图矩阵拉到z=-2.0f位置，后面绘制三角形式就居于这个位置绘制
+    glTranslatef(0.0f, 0.0f, -2.0f); // 2. 将模型视口矩阵拉到z=-2.0f位置，后面绘制三角形式就居于这个位置绘制
     glBegin(GL_TRIANGLES);
     glVertex3f(-0.5f, -0.5f, 0.0f);
     glVertex3f(0.5f, -0.5f, 0.0f);
     glVertex3f(0.0f, 0.5f, 0.0f);
     glEnd();
+    
+    glTranslatef(0.0, 0.0, -2.0f); // 在之前的效果进行叠加 有叠加性
+    glRotatef(-45.0f, 0.0f, 1.0f, 0.0f);
+    //glLoadIdentity(); // 有重置模型视口矩阵
+    glBegin(GL_TRIANGLES);
+    glVertex3f(-0.5f+0.5f, -0.5f, 0.0f);
+    glVertex3f(0.5f+0.5f, -0.5f, 0.0f);
+    glVertex3f(0.0f+0.5f, 0.5f, 0.0f);
+    glEnd();
+    
+    // opengl的context里面有projection矩阵和modeview矩阵，每次修改矩阵后，都会修改context的矩阵
     
     glFlush();
 }
