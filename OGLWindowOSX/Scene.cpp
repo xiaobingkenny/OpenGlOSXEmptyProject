@@ -252,7 +252,7 @@ void Init(float width, float height){
     int image_height = 0;
     unsigned char* pixel = DecodeBMP(bmp_file_content, image_width, image_height);
     
-    texture = CreateTexture(pixel, image_width, image_height, GL_RGB);
+    texture = CreateTexture(pixel, image_width, image_height, GL_RGBA);
     delete[] bmp_file_content;
 }
 

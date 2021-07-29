@@ -22,7 +22,7 @@ unsigned char* DecodeBMP(unsigned char* bmpFile, int &width, int &height){
         
         // bgr->rgb
         for (int i=0; i<width*height; i++) {
-            int current_pixel_index = i*3;
+            int current_pixel_index = i*4;
             unsigned char b = bgr_data[current_pixel_index];
             //unsigned char g = bgr_data[current_pixel_index + 1];
             unsigned char r = bgr_data[current_pixel_index + 2];
