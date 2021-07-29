@@ -254,19 +254,13 @@ void Render(){
     glEnable(GL_POINT_SMOOTH);
     
     glTranslatef(0.0f, 0.0f, -2.0f); // 2. 将模型视口矩阵拉到z=-2.0f位置，后面绘制三角形式就居于这个位置绘制
+    //glRotatef(45.0f, 0.0f, 1.0f, 0.0f); // 沿Y轴旋转
+    glScalef(0.4f, 0.5f, 0.6f); // 缩放
+    
     glBegin(GL_TRIANGLES);
     glVertex3f(-0.5f, -0.5f, 0.0f);
     glVertex3f(0.5f, -0.5f, 0.0f);
     glVertex3f(0.0f, 0.5f, 0.0f);
-    glEnd();
-    
-    glTranslatef(0.0, 0.0, -2.0f); // 在之前的效果进行叠加 有叠加性
-    glRotatef(-45.0f, 0.0f, 1.0f, 0.0f);
-    //glLoadIdentity(); // 有重置模型视口矩阵
-    glBegin(GL_TRIANGLES);
-    glVertex3f(-0.5f+0.5f, -0.5f, 0.0f);
-    glVertex3f(0.5f+0.5f, -0.5f, 0.0f);
-    glVertex3f(0.0f+0.5f, 0.5f, 0.0f);
     glEnd();
     
     // opengl的context里面有projection矩阵和modeview矩阵，每次修改矩阵后，都会修改context的矩阵
