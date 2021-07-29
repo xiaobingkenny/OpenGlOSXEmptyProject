@@ -15,6 +15,7 @@
 		B906932C26AC770A0095FF48 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B906932B26AC770A0095FF48 /* AppKit.framework */; };
 		B906932E26AC77140095FF48 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B906932D26AC77140095FF48 /* OpenGL.framework */; };
 		B906933126AC7FAD0095FF48 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B906932F26AC7FAD0095FF48 /* Scene.cpp */; };
+		B906933326AFDF0A0095FF48 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B906933226AFDF0A0095FF48 /* GLUT.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		B906932D26AC77140095FF48 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		B906932F26AC7FAD0095FF48 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		B906933026AC7FAD0095FF48 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		B906933226AFDF0A0095FF48 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B906933326AFDF0A0095FF48 /* GLUT.framework in Frameworks */,
 				B906932E26AC77140095FF48 /* OpenGL.framework in Frameworks */,
 				B906932C26AC770A0095FF48 /* AppKit.framework in Frameworks */,
 			);
@@ -87,6 +90,7 @@
 		B906932A26AC770A0095FF48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B906933226AFDF0A0095FF48 /* GLUT.framework */,
 				B906932D26AC77140095FF48 /* OpenGL.framework */,
 				B906932B26AC770A0095FF48 /* AppKit.framework */,
 			);

@@ -9,26 +9,123 @@
 #include <Opengl/gl.h>
 #include <OpenGL/glu.h>
 #include <OpenGL/gl3.h>
+#include <GLUT/glut.h>
+#include <math.h>
+//#include <stdlib.h>
+//#include <stdio.h>
+#include <iostream>
 
-void Init(float width, float height){
-    // model view projection
-    // 物体是在 model 模型空间定义的，---> 使用模型矩阵 将模型放到 世界坐标系中
-    // 视口矩阵，就是将眼睛摆在世界坐标系中
-    // 投影矩阵，眼睛看到的东西如何将其变成2D，就是靠投影矩阵
-    
-    glMatrixMode(GL_PROJECTION); // 选中projection矩阵
-    gluPerspective(45.0f, width/height, 0.1f, 1000.0f); // 设置投影矩阵（通过这些参数算出投影矩阵）
-    //
-    
-    glMatrixMode(GL_MODELVIEW); // 选中modelview矩阵 (固定管线 将model矩阵和view矩阵合并了)
-    glLoadIdentity(); // 给model矩阵设置为单位矩阵
-    
-    // 点 Pos => M*Pos 先将这个点放到世界坐标系
-    // => V*M*Pos 在将这个点给摄像机看
-    // => P*V*M*Pos 在和投影矩阵相乘 形成2D画面
-}
+//void Init(float width, float height){
+//    // model view projection
+//    // 物体是在 model 模型空间定义的，---> 使用模型矩阵 将模型放到 世界坐标系中
+//    // 视口矩阵，就是将眼睛摆在世界坐标系中
+//    // 投影矩阵，眼睛看到的东西如何将其变成2D，就是靠投影矩阵
+//
+//    glMatrixMode(GL_PROJECTION); // 选中projection矩阵
+//    gluPerspective(45.0f, width/height, 0.1f, 1000.0f); // 设置投影矩阵（通过这些参数算出投影矩阵）
+//    //
+//
+//    glMatrixMode(GL_MODELVIEW); // 选中modelview矩阵 (固定管线 将model矩阵和view矩阵合并了)
+//    glLoadIdentity(); // 给model矩阵设置为单位矩阵
+//
+//    // 点 Pos => M*Pos 先将这个点放到世界坐标系
+//    // => V*M*Pos 在将这个点给摄像机看
+//    // => P*V*M*Pos 在和投影矩阵相乘 形成2D画面
+//}
 
-void Render(){
+//void Render() {
+//    glClearColor(0.1f, 0.4f, 0.7f, 1.0f);
+//    glClear(GL_COLOR_BUFFER_BIT);
+//    glEnable(GL_BLEND); // 开启混合模式
+//    glDisable(GL_DEPTH_TEST); // 关闭深度测试
+//    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+//    glColor4f(1,0,0,1);
+//    glRectf(-0.8,-0.8,0.5,0.5);
+//    glColor4f(0, 1, 0, 1);
+//    glRectf(-0.5f, -0.5f, 0.8, 0.8);
+//    glFinish();
+//}
+
+//void Render(){
+//    glClear(GL_COLOR_BUFFER_BIT);
+//    int i;
+//    float Pi = 3.1415926f;
+//    glShadeModel(GL_FLAT); // 取消颜色的渐变，改为单一颜色
+//    glBegin(GL_TRIANGLE_FAN);
+//
+//    glColor3f(1.0f, 1.0f, 1.0f); // 设置第一个点的颜色
+//    glVertex2f(0.0f, 0.0f);
+//
+//    for(i = 0; i <= 6; ++i){
+//        int red = i & 0x04;
+//        int green = i & 0x02;
+//        int blue = i & 0x01;
+//        glColor3f(red, green, blue); // 设置各个顶点的颜色
+//        std::cout << red << " " << green << " " << blue << std::endl;
+//        //NSLog("%d, %d, %d", red, green, blue);
+//
+//        //printf("%d, %d, %d", red, green, blue);
+//
+//
+//        glVertex2f(cos(i * Pi/4), sin(i * Pi/4));
+//    }
+//
+//    glEnd();
+//    glFlush();
+//}
+
+//void Render(){
+//    glClearColor(1, 1, 0.8, 1);
+//    glClear(GL_COLOR_BUFFER_BIT);
+//
+//    glTranslatef(0.6, 0, 0);
+//    glRotatef(45, 0, 0, 1);
+//    glScalef(0.5, 0.5, 0.5);
+//
+//    glLoadIdentity();
+//
+//    glColor3f(1, 0, 1);
+//
+//    glBegin(GL_POLYGON);
+//    {
+//        glVertex2f(-0.4, -0.4);
+//        glVertex2f(-0.4, 0.4);
+//        glVertex2f(0.4, 0.4);
+//        glVertex2f(0.4, -0.4);
+//    }
+//    glEnd();
+//
+//    glFlush();
+//}
+
+//void Init(float width, float height){
+//    glViewport(0, 0, width, height);
+//    glMatrixMode(GL_PROJECTION);
+//    glLoadIdentity();
+//    gluPerspective(60.0, width/height, 4, 10.0);
+//    glMatrixMode(GL_MODELVIEW);
+//    glLoadIdentity();
+//    gluLookAt(0.0, 0.0, 5.0,
+//              0.0, 0.0, 0.0,
+//              0.0, 1.0, 0.0);
+//}
+
+
+//void Render() {
+//    glClearColor(1, 1, 1, 0);
+//    glClear(GL_COLOR_BUFFER_BIT);
+//    glColor3f(0, 0, 1.0f); // 画笔蓝色
+//    glLoadIdentity();
+//    gluLookAt(0.0, 5.0, 0.0, // 相机在世界坐标中的位置
+//              0, 0, 0,       // 定义相机正对着的世界坐标系中的点的位置坐标，成像后这一点会位于画板的中心位置
+//              1.0, 0.0, 0);  // 定义相机本身的朝向
+//    glutWireTeapot(1.3);
+//    glutSwapBuffers();
+//
+//    glFlush();
+//}
+
+void RenderBack(){
     // ^ + i // 格式化
     glClearColor(0.1f, 0.4f, 0.7f, 1.0f); // 设置擦除gpu中的颜色缓冲区的颜色 （gpu缓冲区：颜色，深度，蒙版缓冲区）
     
@@ -137,4 +234,31 @@ void Render(){
     
     // 执行上面两句指令，可能保存到glContext上下文指令队列中，不一定到gpu中
     glFlush(); // glFlush 就是将指令队列刷新给gpu，是否执行glFlush它不管
+}
+
+void Init(float width, float height){
+    glMatrixMode(GL_PROJECTION);
+    gluPerspective(45.0f, width/height, 0.1f, 1000.0f);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+}
+
+void Render(){
+    glClearColor(0.1f, 0.4f, 0.7f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT|GL_STENCIL_BUFFER_BIT);
+    glEnable(GL_CULL_FACE);
+    glLoadIdentity(); // 1. 重置模型视图矩阵
+                        //（注：a.最近选中的矩阵是glMatrixMode(GL_MODELVIEW)，在没有选中其他矩阵的时候，后续的操作都是对GL_MODELVIEW操作的；
+                        //   b.在这重置了，防止之前有修改过这个矩阵）
+    glPointSize(32.0f);
+    glEnable(GL_POINT_SMOOTH);
+    
+    glTranslatef(0.0f, 0.0f, -2.0f); // 2. 将模型视图矩阵拉到z=-2.0f位置，后面绘制三角形式就居于这个位置绘制
+    glBegin(GL_TRIANGLES);
+    glVertex3f(-0.5f, -0.5f, 0.0f);
+    glVertex3f(0.5f, -0.5f, 0.0f);
+    glVertex3f(0.0f, 0.5f, 0.0f);
+    glEnd();
+    
+    glFlush();
 }
