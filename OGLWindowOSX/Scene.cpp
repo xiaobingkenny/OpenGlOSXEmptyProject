@@ -14,6 +14,7 @@
 //#include <stdlib.h>
 //#include <stdio.h>
 #include <iostream>
+#include "Model.h"
 
 //void Init(float width, float height){
 //    // model view projection
@@ -239,6 +240,7 @@ void RenderBack(){
 #include "Utils.h"
 
 GLuint texture;
+Model model;
 void Init(float width, float height){
     glMatrixMode(GL_PROJECTION);
     gluPerspective(45.0f, width/height, 0.1f, 1000.0f);
@@ -246,14 +248,16 @@ void Init(float width, float height){
     glLoadIdentity();
     
     int filesize = 0;
-    unsigned char* bmp_file_content = LoadFileContent("Data/head.bmp", filesize);
+    unsigned char* bmp_file_content = LoadFileContent("Data/earth.bmp", filesize);
     
     int image_width = 0;
     int image_height = 0;
     unsigned char* pixel = DecodeBMP(bmp_file_content, image_width, image_height);
     
-    texture = CreateTexture(pixel, image_width, image_height, GL_RGBA);
+    texture = CreateTexture(pixel, image_width, image_height, GL_RGB); // zzh rgb rgba
     delete[] bmp_file_content;
+    
+    model.Init("Data/Sphere.obj");
 }
 
 void Render(){
@@ -263,29 +267,34 @@ void Render(){
     glLoadIdentity(); // 1. 重置模型视口矩阵
                         //（注：a.最近选中的矩阵是glMatrixMode(GL_MODELVIEW)，在没有选中其他矩阵的时候，后续的操作都是对GL_MODELVIEW操作的；
                         //   b.在这重置了，防止之前有修改过这个矩阵）
-    glPointSize(32.0f);
-    glEnable(GL_POINT_SMOOTH);
+//    glPointSize(32.0f);
+//    glEnable(GL_POINT_SMOOTH);
+//
+//    glBindTexture(GL_TEXTURE_2D, texture);
+//    glEnable(GL_TEXTURE_2D);
+//    glPushMatrix(); // 压栈 （保存了当前选中的矩阵，压栈出栈可以嵌套）
+//        glTranslatef(0.0f, 0.0f, -2.0f); // 2. 将模型视口矩阵拉到z=-2.0f位置，后面绘制三角形式就居于这个位置绘制
+//
+//        glBegin(GL_TRIANGLE_STRIP);
+//            // 纹理坐标左下角为0，0
+//            glTexCoord2f(0.0f, 0.0f);
+//            glVertex3f(-0.5f, -0.5f, 0.0f);
+//
+//            glTexCoord2f(1.0f, 0.0f);
+//            glVertex3f(0.5f, -0.5f, 0.0f);
+//
+//            glTexCoord2f(0.0f, 1.0f);
+//            glVertex3f(-0.5f, 0.5f, 0.0f);
+//
+//            glTexCoord2f(1.0f, 1.0f);
+//            glVertex3f(0.5f, 0.5f, 0.0f);
+//        glEnd();
+//    glPopMatrix(); // 出栈
     
     glBindTexture(GL_TEXTURE_2D, texture);
     glEnable(GL_TEXTURE_2D);
-    glPushMatrix(); // 压栈 （保存了当前选中的矩阵，压栈出栈可以嵌套）
-        glTranslatef(0.0f, 0.0f, -2.0f); // 2. 将模型视口矩阵拉到z=-2.0f位置，后面绘制三角形式就居于这个位置绘制
-        
-        glBegin(GL_TRIANGLES);
-            // 纹理坐标左下角为0，0
-            glTexCoord2f(0.0f, 0.0f);
-            glColor3ub(255, 255, 0); // 颜色也是在opengl的context里保存的，绘制点的时候，根据opengl状态机，context的颜色的信息绘制点
-            glVertex3f(-0.5f, -0.5f, 0.0f);
-    
-            glTexCoord2f(1.0f, 0.0f);
-            glColor3ub(255, 0, 255);
-            glVertex3f(0.5f, -0.5f, 0.0f);
-    
-            glTexCoord2f(0.5f, 1.0f);
-            glColor3ub(0, 255, 255);
-            glVertex3f(0.0f, 0.5f, 0.0f);
-        glEnd();
-    glPopMatrix(); // 出栈
+    glTranslatef(0.0f, 0.0f, -5.0f);
+    model.Draw();
     
     // opengl的context里面有projection矩阵和modeview矩阵，每次修改矩阵后，都会修改context的矩阵
     
